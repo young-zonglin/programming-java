@@ -4,6 +4,8 @@
 .idea/
 *.iml
 
+# Java.gitignore
+
 # Compiled class file
 *.class
 
