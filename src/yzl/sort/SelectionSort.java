@@ -1,4 +1,4 @@
-package com.yzl.sort;
+package yzl.sort;
 
 public class SelectionSort {
     public static double[] sort(double[] arr) {

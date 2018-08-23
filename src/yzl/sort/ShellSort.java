@@ -1,4 +1,4 @@
-package com.yzl.sort;
+package yzl.sort;
 
 public class ShellSort {
     public static double[] sort(double[] arr) {
