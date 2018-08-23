@@ -1,23 +1,23 @@
 package com.yzl.sort;
 
 public class BubbleSort {
-    public static double[] sort(double[] a) {
-        int n = a.length;
-        for (int i=1; i<n; i++)
-            for (int j=0; j<n-i; j++) {
-                if (a[j] > a[j + 1]) {
-                    double tmp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = tmp;
+    public static double[] sort(double[] arr) {
+        int len = arr.length;
+        for (int i=1; i<len; i++)
+            for (int j=0; j<len-i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    double tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
                 }
             }
-        return a;
+        return arr;
     }
 
     public static void main(String[] args) {
-        double[] a = {1, 5.2, 3, 4, 10, 7, 1, 3, 5, 7};
-        a = BubbleSort.sort(a);
-        for (double tmp : a) {
+        double[] arr = {1, 5.2, 3, 4, 10, 7, 1, 3, 5, 7};
+        arr = BubbleSort.sort(arr);
+        for (double tmp : arr) {
             System.out.print(tmp+" ");
         }
     }
