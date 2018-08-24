@@ -19,7 +19,7 @@ public class ShellSort {
 
     public static void main(String[] args) {
         double[] a = {1, 5.2, 3, 4, 10, 7, 1, 3, 5, 7, -1, -5, 0, 10, 5.8, -5.8};
-        a = ShellSort.sort(a);
+        ShellSort.sort(a);
         for (double tmp : a) {
             System.out.print(tmp+" ");
         }

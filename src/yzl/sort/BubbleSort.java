@@ -16,7 +16,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         double[] arr = {1, 5.2, 3, 4, 10, 7, 1, 3, 5, 7};
-        arr = BubbleSort.sort(arr);
+        BubbleSort.sort(arr);
         for (double tmp : arr) {
             System.out.print(tmp+" ");
         }
