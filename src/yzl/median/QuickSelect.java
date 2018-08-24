@@ -20,7 +20,7 @@ public class QuickSelect {
 
     public static void main(String[] args) {
         double[] arr = {1, 5.2, 3, 4, 10, 7, 1, 3, 5, 7, -1, -5, 0, 10, 5.8, 20};
-        double median = QuickSelect.select(arr, 1);
-        System.out.println("median: " + median);
+        double k_th = QuickSelect.select(arr, 1);
+        System.out.println("k_th: " + k_th);
     }
 }
