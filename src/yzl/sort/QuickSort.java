@@ -19,7 +19,7 @@ public class QuickSort {
         arr[j] = tmp;
     }
 
-    private static int partition(double[] arr, int low, int high) {
+    public static int partition(double[] arr, int low, int high) {
         double pivot = arr[low];
         int i = low;
         int j = high+1;
