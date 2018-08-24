@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class Solution_215 {
     public static void main(String[] args) {
         int[] arr = {3,2,3,1,2,4,5,5,6};
-        int max = new Solution_two().findKthLargest(arr, 5);
-        System.out.println("max: "+max);
+        int kthLargest = new Solution_two().findKthLargest(arr, 5);
+        System.out.println("kthLargest: "+kthLargest);
     }
 }
 
