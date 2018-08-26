@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Solution_215 {
     public static void main(String[] args) {
         int[] arr = {3,2,3,1,2,4,5,5,6};
-        int kthLargest = new Solution_two().findKthLargest(arr, 5);
+        int kthLargest = new Solution_two().findKthLargest(arr, 4);
         System.out.println("kthLargest: "+kthLargest);
     }
 }
@@ -18,30 +18,6 @@ class Solution_two {
 }
 
 class Solution_one {
-    private void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
-    private int partition(int[] nums, int low, int high) {
-        int pivot = nums[low];
-        int i = low;
-        int j = high+1;
-        while (true) {
-            while (nums[++i] > pivot)
-                if (i == high)
-                    break;
-            while (pivot > nums[--j])
-                if (j == low)
-                    break;
-            if (i>=j) break;
-            swap(nums, i, j);
-        }
-        swap(nums, low, j);
-        return j;
-    }
-
     public int findKthLargest(int[] nums, int k) {
         k -= 1;
         int low = 0;
@@ -53,5 +29,25 @@ class Solution_one {
             else if (j > k) high = j-1;
         }
         return nums[k];
+    }
+
+    private int partition(int[] nums, int low, int high) {
+        int pivot = nums[low];
+        int i = low;
+        int j = high+1;
+        while (true) {
+            while (i<high && nums[++i] > pivot);
+            while (j>low && pivot > nums[--j]);
+            if (i>=j) break;
+            swap(nums, i, j);
+        }
+        swap(nums, low, j);
+        return j;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
 }
