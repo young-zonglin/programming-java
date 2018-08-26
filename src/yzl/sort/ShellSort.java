@@ -1,7 +1,7 @@
 package yzl.sort;
 
 public class ShellSort {
-    public static double[] sort(double[] arr) {
+    public static void sort(double[] arr) {
         int len = arr.length;
         int h = 1;
         while (h < len/3) h = 3*h+1;
@@ -14,7 +14,6 @@ public class ShellSort {
                 }
             h /= 3;
         }
-        return arr;
     }
 
     public static void main(String[] args) {

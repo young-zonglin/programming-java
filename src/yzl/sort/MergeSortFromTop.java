@@ -3,6 +3,11 @@ package yzl.sort;
 public class MergeSortFromTop {
     private static double[] aux;
 
+    public static void sort(double[] arr) {
+        aux = new double[arr.length];
+        sort(arr, 0, arr.length-1);
+    }
+
     private static void sort(double[] arr, int low, int high) {
         if (low >= high) return;
         int mid = low + (high-low)/2;
@@ -20,15 +25,9 @@ public class MergeSortFromTop {
         for (int k = low; k <= high; k++) {
             if (i > mid) arr[k] = aux[j++];
             else if (j > high) arr[k] = aux[i++];
-            else if (aux[i] < aux[j]) arr[k] = aux[i++];
+            else if (aux[i] <= aux[j]) arr[k] = aux[i++];
             else arr[k] = aux[j++];
         }
-    }
-
-    public static double[] sort(double[] arr) {
-        aux = new double[arr.length];
-        sort(arr, 0, arr.length-1);
-        return arr;
     }
 
     public static void main(String[] args) {

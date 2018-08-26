@@ -1,9 +1,8 @@
 package yzl.sort;
 
 public class QuickSort {
-    public static double[] sort(double[] arr) {
+    public static void sort(double[] arr) {
         sort(arr, 0, arr.length-1);
-        return arr;
     }
 
     private static void sort(double[] arr, int low, int high) {
@@ -24,12 +23,9 @@ public class QuickSort {
         int i = low;
         int j = high+1;
         while (true) {
-            while (arr[++i] < pivot) {
-                // Avoid array out of bounds.
-                if (i == high) break;
-            }
-            while (pivot < arr[--j])
-                if (j == low) break;
+            // Avoid array out of bounds.
+            while (i < high && arr[++i] < pivot);
+            while (j > low && pivot < arr[--j]);
             if (i >= j) break;
             swap(arr, i, j);
         }

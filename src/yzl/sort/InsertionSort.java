@@ -1,21 +1,16 @@
 package yzl.sort;
 
 public class InsertionSort {
-    public static double[] sort(double[] arr) {
+    public static void sort(double[] arr) {
         int len = arr.length;
         for (int i=1; i<len; i++) {
             double now = arr[i];
             int j = i-1;
-            for (; j>=0; j--) {
-                if (arr[j] > now) {
-                    arr[j+1] = arr[j];
-                } else {
-                    break;
-                }
+            for (; j>=0 && arr[j] > now; j--) {
+                arr[j+1] = arr[j];
             }
             arr[j+1] = now;
         }
-        return arr;
     }
 
     public static void main(String[] args) {

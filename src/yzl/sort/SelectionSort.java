@@ -1,9 +1,9 @@
 package yzl.sort;
 
 public class SelectionSort {
-    public static double[] sort(double[] arr) {
+    public static void sort(double[] arr) {
         int len = arr.length;
-        for (int i=0; i<len-1; i++) {
+        for (int i=0; i<=len-2; i++) {
             int minIndex = i;
             for (int j = i+1; j < len; j++) {
                 if (arr[j] < arr[minIndex]) {
@@ -14,7 +14,6 @@ public class SelectionSort {
             arr[i] = arr[minIndex];
             arr[minIndex] = tmp;
         }
-        return arr;
     }
 
     public static void main(String[] args) {

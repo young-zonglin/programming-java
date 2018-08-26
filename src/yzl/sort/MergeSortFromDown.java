@@ -11,19 +11,19 @@ public class MergeSortFromDown {
         for (int k = low; k <= high; k++) {
             if (i > mid) arr[k] = aux[j++];
             else if (j > high) arr[k] = aux[i++];
-            else if (aux[i] < aux[j]) arr[k] = aux[i++];
+            // For stable sorting.
+            else if (aux[i] <= aux[j]) arr[k] = aux[i++];
             else arr[k] = aux[j++];
         }
     }
 
-    public static double[] sort(double[] arr) {
+    public static void sort(double[] arr) {
         int len = arr.length;
         aux = new double[len];
         for (int sz = 1; sz<len; sz *= 2)
+            // mid < len-1 => low < len-sz
             for (int low = 0; low < len-sz; low += sz*2)
-                // mid < len-1 => low < len-sz
                 merge(arr, low, low+sz-1, Math.min(low+2*sz-1, len-1));
-        return arr;
     }
 
     public static void main(String[] args) {
