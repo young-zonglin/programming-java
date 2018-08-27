@@ -1,5 +1,7 @@
 package yzl.leetcode;
 
+import yzl.dp.LIS_Two;
+
 public class Solution_300 {
     public int lengthOfLIS(int[] nums) {
         int len = nums.length;
@@ -23,7 +25,8 @@ public class Solution_300 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{10,9,2,5,3,7,101,18};
-        int maxLen = new Solution_300().lengthOfLIS(arr);
+//        int maxLen = new Solution_300().lengthOfLIS(arr);
+        int maxLen = new LIS_Two().getLenOfLIS(arr);
         System.out.println(maxLen);
     }
 }
