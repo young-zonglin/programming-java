@@ -6,12 +6,12 @@ public class Solution_300 {
         if (len <= 0) return 0;
         int maxLen = 0;
         int[] states = new int[len];
+        int i, j, curLen;
 
-        for (int i = 0; i < len; i++) {
+        for (i = 0; i < len; i++) {
             states[i] = 1;
-            for (int j = 0; j < i; j++) {
-                int curLen = states[j]+1;
-                if (nums[j]<nums[i] && curLen>states[i]) {
+            for (j = 0; j < i; j++) {
+                if (nums[j] < nums[i] && (curLen=states[j]+1) > states[i]) {
                     states[i] = curLen;
                 }
             }
