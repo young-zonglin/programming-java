@@ -1,4 +1,4 @@
-package dp;
+package yzl.dp;
 
 import java.util.Random;
 
