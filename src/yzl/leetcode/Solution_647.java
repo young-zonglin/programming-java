@@ -6,6 +6,7 @@ package yzl.leetcode;
 public class Solution_647 {
     public int countSubstrings(String s) {
         int len = s.length();
+        if (len <= 0) return 0;
         int[][] dp = new int[len][len];
         int i, j, count = 0;
 
