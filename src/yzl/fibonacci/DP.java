@@ -1,4 +1,4 @@
-package yz.fibonacci;
+package yzl.fibonacci;
 
 import java.util.HashMap;
 import java.util.Map;

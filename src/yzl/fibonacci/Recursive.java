@@ -1,4 +1,4 @@
-package yz.fibonacci;
+package yzl.fibonacci;
 
 public class Recursive {
     public int fibonacci(int n) {
