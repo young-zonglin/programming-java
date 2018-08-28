@@ -8,7 +8,7 @@ public class DP {
         if (n==0 || n==1) return 1;
         Integer v = memory.get(n);
         if (v == null) {
-            int middle =  fastFib(n-1, memory) + fastFib(n-2, memory);
+            int middle = fastFib(n-1, memory) + fastFib(n-2, memory);
             memory.put(n, middle);
             return middle;
         } else {
