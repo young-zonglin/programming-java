@@ -5,19 +5,19 @@ import java.util.Arrays;
 public class Solution_215 {
     public static void main(String[] args) {
         int[] arr = {3,2,3,1,2,4,5,5,6};
-        int kthLargest = new Solution_two().findKthLargest(arr, 4);
+        int kthLargest = new Solution_215_two().findKthLargest(arr, 4);
         System.out.println("kthLargest: "+kthLargest);
     }
 }
 
-class Solution_two {
+class Solution_215_two {
     public int findKthLargest(int[] nums, int k) {
         Arrays.sort(nums);
         return nums[nums.length-k];
     }
 }
 
-class Solution_one {
+class Solution_215_one {
     public int findKthLargest(int[] nums, int k) {
         k -= 1;
         int low = 0;
