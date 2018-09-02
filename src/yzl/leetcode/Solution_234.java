@@ -9,13 +9,8 @@ import java.util.List;
 public class Solution_234 {
     public static void main(String[] args) {
         int arr[] = new int[]{1, 2, 3, 2};
-        ListNode head = null, oldHead;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            oldHead = head;
-            head = new ListNode(arr[i]);
-            head.next = oldHead;
-        }
-        Solution_234_two.showLinkedList(head, "forward");
+        ListNode head = ListNode.createLinkedList(arr);
+        ListNode.showLinkedList(head, "forward");
         System.out.println(new Solution_234_two().isPalindrome(head));
     }
 }
@@ -24,6 +19,26 @@ class ListNode {
     int val;
     ListNode next;
     ListNode(int x) { val = x; }
+
+    public static ListNode createLinkedList(int[] arr) {
+        ListNode head = null, oldHead;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            oldHead = head;
+            head = new ListNode(arr[i]);
+            head.next = oldHead;
+        }
+        return head;
+    }
+
+    public static void showLinkedList(ListNode head, String description) {
+        ListNode cur = head;
+        System.out.println(description);
+        while (cur != null) {
+            System.out.print(cur.val + " ");
+            cur = cur.next;
+        }
+        System.out.println();
+    }
 }
 
 class Solution_234_one {
@@ -72,15 +87,5 @@ class Solution_234_two {
             cur = cur.next;
         }
         return tail;
-    }
-
-    public static void showLinkedList(ListNode head, String description) {
-        ListNode cur = head;
-        System.out.println(description);
-        while (cur != null) {
-            System.out.print(cur.val + " ");
-            cur = cur.next;
-        }
-        System.out.println();
     }
 }

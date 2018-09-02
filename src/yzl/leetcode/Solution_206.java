@@ -6,15 +6,10 @@ package yzl.leetcode;
 public class Solution_206 {
     public static void main(String[] args) {
         int arr[] = new int[]{1, 2, 3, 2};
-        ListNode head = null, oldHead;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            oldHead = head;
-            head = new ListNode(arr[i]);
-            head.next = oldHead;
-        }
-        Solution_234_two.showLinkedList(head, "forward");
+        ListNode head = ListNode.createLinkedList(arr);
+        ListNode.showLinkedList(head, "forward");
         ListNode reverse = new Solution_206_two().reverseList(head);
-        Solution_234_two.showLinkedList(reverse, "reverse");
+        ListNode.showLinkedList(reverse, "reverse");
     }
 }
 
