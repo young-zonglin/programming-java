@@ -9,11 +9,10 @@ import java.util.List;
 public class Solution_234 {
     public static void main(String[] args) {
         int arr[] = new int[]{1, 2, 3, 2};
-        ListNode head = null, oldHead, cur;
+        ListNode head = null, oldHead;
         for (int i = arr.length - 1; i >= 0; i--) {
-            cur = new ListNode(arr[i]);
             oldHead = head;
-            head = cur;
+            head = new ListNode(arr[i]);
             head.next = oldHead;
         }
         Solution_234_two.showLinkedList(head, "forward");
