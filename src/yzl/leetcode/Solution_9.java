@@ -5,8 +5,8 @@ package yzl.leetcode;
  */
 public class Solution_9 {
     public static void main(String[] args) {
-        int x = -123;
-        System.out.println(new Solution_9_two().isPalindrome(x));
+        int x = 121;
+        System.out.println(new Solution_9_three().isPalindrome(x));
     }
 }
 
@@ -38,5 +38,26 @@ class Solution_9_two {
         String forward = String.valueOf(x);
         String backward = new StringBuffer(forward).reverse().toString();
         return forward.equals(backward);
+    }
+}
+
+class Solution_9_three {
+    public boolean isPalindrome(int x) {
+        if (x < 0) return false;
+        int count = 0;
+        int place[] = new int[20];
+        int tmp;
+        while (x != 0) {
+            tmp = x % 10;
+            x /= 10;
+            place[count++] = tmp;
+        }
+        int i = 0, j = count-1;
+        while (i < j) {
+            if (place[i] != place[j]) return false;
+            i++;
+            j--;
+        }
+        return true;
     }
 }
