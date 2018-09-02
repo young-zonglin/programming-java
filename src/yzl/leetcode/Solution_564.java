@@ -42,8 +42,9 @@ class Solution_564_one {
     }
 
     private boolean isPalindromic(Long n) {
-        List<Long> front_end = new Solution_564_two().partition(n.toString());
-        return front_end.get(0).equals(front_end.get(1));
+        String forward = n.toString();
+        String backward = new StringBuffer(forward).reverse().toString();
+        return forward.equals(backward);
     }
 }
 
@@ -210,8 +211,8 @@ class Solution_564_three {
     }
 
     private boolean isPalindromic(Long n) {
-        if (n < 0) return false;
-        List<Long> front_end = partition(n.toString());
-        return front_end.get(0).equals(front_end.get(1));
+        String forward = n.toString();
+        String backward = new StringBuffer(forward).reverse().toString();
+        return forward.equals(backward);
     }
 }
