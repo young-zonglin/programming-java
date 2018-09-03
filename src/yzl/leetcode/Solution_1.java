@@ -2,7 +2,21 @@ package yzl.leetcode;
 
 import java.util.*;
 
+/**
+ * Two sum problem.
+ */
 public class Solution_1 {
+    public static void main(String[] args) {
+        int[] arr = new int[]{3,3};
+        int[] res = new Solution_1_three().twoSum(arr, 6);
+        System.out.println(Arrays.toString(res));
+    }
+}
+
+/**
+ * Complicated the problem...
+ */
+class Solution_1_one {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, List<Integer>> numToIdxs = new HashMap<>();
         int i, end=1;
@@ -30,11 +44,42 @@ public class Solution_1 {
 
         return new int[] {i, end};
     }
+}
 
-    public static void main(String[] args) {
-        int[] arr = new int[]{3,3};
-        int[] res = new Solution_1().twoSum(arr, 6);
-        System.out.println(Arrays.toString(res));
+/**
+ * Need to traverse the array twice.
+ */
+class Solution_1_two {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> numToIdx = new HashMap<>();
+        int i, end;
+        for (i = 0; i<nums.length; i++) {
+            numToIdx.put(nums[i], i);
+        }
+        for (i = 0; i<nums.length; i++) {
+            int complement = target-nums[i];
+            if (numToIdx.containsKey(complement) && (end=numToIdx.get(complement)) != i) {
+                return new int[] {i, end};
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution.");
+    }
+}
+
+/**
+ * Just traverse the array once.
+ */
+class Solution_1_three {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i<nums.length; i++) {
+            int complement = target-nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] {map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution.");
     }
 }
 
