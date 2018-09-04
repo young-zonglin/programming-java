@@ -3,11 +3,9 @@ package yzl.leetcode;
 public class Solution_7 {
     public static void main(String[] args) {
         int x = -120;
-        int reversed = new Solution_7_one().reverse(x);
+        int reversed = new Solution_7_two().reverse(x);
         System.out.println(reversed);
     }
-
-
 }
 
 class Solution_7_one {
