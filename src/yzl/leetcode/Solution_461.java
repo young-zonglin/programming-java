@@ -11,11 +11,9 @@ class Solution_461_one {
     public int hammingDistance(int x, int y) {
         int hammingDist = 0;
         for (int i = 0; i < 32; i++) {
-            if ((x&1) != (y&1)) {
+            if ( ((x>>i)&1) != ((y>>i)&1) ) {
                 hammingDist++;
             }
-            x >>= 1;
-            y >>= 1;
         }
         return hammingDist;
     }
@@ -26,8 +24,7 @@ class Solution_461_two {
         int num = x ^ y;
         int count = 0;
         for (int i = 0; i<32; i++) {
-            count += num&1;
-            num >>= 1;
+            count += (num>>i)&1;
         }
         return count;
     }
