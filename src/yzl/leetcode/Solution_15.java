@@ -18,7 +18,7 @@ class Solution_15_one {
         Arrays.sort(nums);
         if (nums[0] > 0) return res;
         int target;
-        for (int i = 0; i<len; i++) {
+        for (int i = 0; i<len-2; i++) {
             if (i>0 && nums[i] == nums[i-1]) continue;
             target = -nums[i];
             int m = i+1, n=len-1;
