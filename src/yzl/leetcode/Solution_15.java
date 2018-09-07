@@ -26,11 +26,8 @@ class Solution_15_one {
                 if (nums[m]+nums[n] < target) ++m;
                 else if (nums[m]+nums[n] > target) --n;
                 else {
-                    List<Integer> list = new ArrayList<>();
-                    list.add(nums[i]);
-                    list.add(nums[m]);
-                    list.add(nums[n]);
-                    res.add(list);
+                    Integer[] tmp = new Integer[]{nums[i], nums[m], nums[n]};
+                    res.add(Arrays.asList(tmp));
                     while (m<n && nums[m] == nums[m+1]) ++m;
                     while (m<n && nums[n] == nums[n-1]) --n;
                     ++m;
