@@ -7,8 +7,8 @@ import java.util.*;
  */
 public class Solution_1 {
     public static void main(String[] args) {
-        int[] arr = new int[]{3,3};
-        int[] res = new Solution_1_three().twoSum(arr, 6);
+        int[] arr = new int[]{1,2,4,2,5};
+        int[] res = new Solution_1_wrong().twoSum(arr, 6);
         System.out.println(Arrays.toString(res));
     }
 }
@@ -89,21 +89,21 @@ class Solution_1_wrong {
         int i, j=1;
         for (i = 0; i < nums.length; i++) {
             j = binarySearch(nums, i+1, target-nums[i]);
-            if (nums[i]+nums[j] == target) break;
+            if (j >= 0) break;
         }
         return new int[]{nums[i], nums[j]};
     }
 
-    private int binarySearch(int[] nums, int s, int target) {
+    private int binarySearch(int[] nums, int s, int key) {
         int e = nums.length - 1;
-        int mid, midValue;
-        while (s < e) {
+        int mid, midVal;
+        while (s <= e) {
             mid = s+(e-s)/2;
-            midValue = nums[mid];
-            if (midValue == target) return mid;
-            else if (midValue < target) s=mid+1;
-            else e=mid;
+            midVal = nums[mid];
+            if (midVal == key) return mid;
+            else if (midVal < key) s=mid+1;
+            else e=mid-1;
         }
-        return s;
+        return -(s+1);
     }
 }
