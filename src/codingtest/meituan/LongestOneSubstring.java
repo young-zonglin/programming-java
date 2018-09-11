@@ -1,4 +1,4 @@
-package yzl.meituan;
+package codingtest.meituan;
 
 import java.util.Scanner;
 

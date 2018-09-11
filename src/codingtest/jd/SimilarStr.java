@@ -1,4 +1,4 @@
-package yzl.jd;
+package codingtest.jd;
 
 import java.util.HashMap;
 import java.util.Map;

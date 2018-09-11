@@ -1,4 +1,4 @@
-package yzl.netease;
+package codingtest.netease;
 
 import java.util.Scanner;
 

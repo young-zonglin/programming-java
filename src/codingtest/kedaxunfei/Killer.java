@@ -1,4 +1,4 @@
-package yzl.kedaxunfei;
+package codingtest.kedaxunfei;
 
 import java.util.ArrayList;
 import java.util.List;
