@@ -29,7 +29,7 @@ class LinkedNode {
 
 public class ReverseLinkedList {
     private LinkedNode reverseBetween(LinkedNode head, int m, int n) {
-        LinkedNode start = null, end = null, tail = null, cur = head, next;
+        LinkedNode start = null, end = null, front = null, cur = head, next;
         int count = 0;
         while (cur != null && count < n) {
             count++;
@@ -41,14 +41,14 @@ public class ReverseLinkedList {
             }
             next = cur.next;
             if (count >= m) {
-                LinkedNode oldLast = tail;
-                tail = cur;
-                tail.next = oldLast;
+                LinkedNode oldFront = front;
+                front = cur;
+                front.next = oldFront;
             }
             cur = next;
         }
-        if (m == 1) head = tail;
-        else if (start != null) start.next = tail;
+        if (m == 1) head = front;
+        else if (start != null) start.next = front;
 
         if (end != null) end.next = cur;
         return head;
