@@ -47,14 +47,12 @@ public class NumOfZero {
     }
 
     private BigInteger getFactorial(int n, Map<Integer, BigInteger> memory) {
-        if (n == 1) return BigInteger.ONE;
+        if (n <= 1) return BigInteger.ONE;
         BigInteger val = memory.get(n);
         if (val == null) {
             val = getFactorial(n-1, memory).multiply(BigInteger.valueOf(n));
             memory.put(n, val);
-            return val;
-        } else {
-            return val;
         }
+        return val;
     }
 }

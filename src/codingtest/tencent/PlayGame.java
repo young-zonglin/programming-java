@@ -13,7 +13,6 @@ public class PlayGame {
     }
 
     public int exhaustion(int compNums, int x_score, int y_score) {
-        int resultScore = 0;
         int minTimes = Integer.MAX_VALUE;
         int scores[] = new int[compNums];
         for (int i = 0; i<compNums; i++) {
@@ -21,11 +20,11 @@ public class PlayGame {
         }
 
         for (int i=0; i<Math.pow(2, compNums); i++) {
-            int[] currSelect = convert(i, compNums);
+            int[] curSel = convert(i, compNums);
             int xCurScore = 0, yCurScore = 0;
             int count = 0;
             for (int j=0; j<compNums; j++) {
-                if (currSelect[j] == 1) {
+                if (curSel[j] == 1) {
                     xCurScore += scores[j];
                     count++;
                 } else {
@@ -36,15 +35,14 @@ public class PlayGame {
                 minTimes = count;
             }
         }
-        System.out.println("min times: " + minTimes);
         return minTimes == Integer.MAX_VALUE ? -1 : minTimes;
     }
 
     /**
      * Convert decimal number to binary mode.
      */
-    private int[] convert(int decimalNum, int retArrayLen) {
-        int[] retBinary = new int[retArrayLen];
+    private int[] convert(int decimalNum, int retArrLen) {
+        int[] retBinary = new int[retArrLen];
         int i = 0;
         while (true) {
             retBinary[i++] = decimalNum%2;
