@@ -4,17 +4,10 @@ import java.util.Scanner;
 
 public class DynamicProgramming {
     public int dynamicProgramming(int goodsNum, int capacity,
-                                     int weights[], int[] values) {
+                                  int weights[], int[] values) {
         int[][] maxValues = new int[goodsNum+1][capacity+1];
-        int i, j;
-        for (i=0; i<=goodsNum; i++) {
-            maxValues[i][0] = 0;
-        }
-        for (i=0; i<=capacity; i++) {
-            maxValues[0][i] = 0;
-        }
-        for (i=1; i<=goodsNum; i++)
-            for (j=1; j<=capacity; j++) {
+        for (int i=1; i<=goodsNum; i++)
+            for (int j=1; j<=capacity; j++) {
                 if (weights[i-1] > j)
                     maxValues[i][j] = maxValues[i-1][j];
                 else {
@@ -34,16 +27,9 @@ public class DynamicProgramming {
         int[] values = new int[goodsNum];
         int i = 0;
         int j = 0;
-        boolean readWeight = true;
-
         while (reader.hasNext()) {
-            if (readWeight) {
-                weights[i++] = reader.nextInt();
-                readWeight = false;
-            } else {
-                values[j++] = reader.nextInt();
-                readWeight = true;
-            }
+            weights[i++] = reader.nextInt();
+            values[j++] = reader.nextInt();
         }
 
         DynamicProgramming dp = new DynamicProgramming();

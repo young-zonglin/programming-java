@@ -27,7 +27,7 @@ public class BackTracking {
     private void backtrack(int layer, int goodsNum, double capacity,
                            double[] weights, double[] values) {
         if (layer >= goodsNum) {
-            if (currW < capacity && currV > maxValue) {
+            if (currW <= capacity && currV > maxValue) {
                 resultWeight = currW;
                 maxValue = currV;
                 System.arraycopy(currChoice, 0, selection, 0, goodsNum);
@@ -54,16 +54,9 @@ public class BackTracking {
         double[] values = new double[goodsNum];
         int i = 0;
         int j = 0;
-        boolean readWeight = true;
-
         while (reader.hasNext()) {
-            if (readWeight) {
-                weights[i++] = reader.nextDouble();
-                readWeight = false;
-            } else {
-                values[j++] = reader.nextDouble();
-                readWeight = true;
-            }
+            weights[i++] = reader.nextDouble();
+            values[j++] = reader.nextDouble();
         }
 
         BackTracking bt = new BackTracking();

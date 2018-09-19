@@ -50,16 +50,9 @@ public class Exhaustion {
         double[] values = new double[goodsNum];
         int i = 0;
         int j = 0;
-        boolean readWeight = true;
-
         while (reader.hasNext()) {
-            if (readWeight) {
-                weights[i++] = reader.nextDouble();
-                readWeight = false;
-            } else {
-                values[j++] = reader.nextDouble();
-                readWeight = true;
-            }
+            weights[i++] = reader.nextDouble();
+            values[j++] = reader.nextDouble();
         }
 
         Exhaustion backpackExh = new Exhaustion();
