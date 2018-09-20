@@ -18,7 +18,7 @@ public class NumOfZero {
     public int getZeroNum(int n) {
         BigInteger val = op(n);
         String str = val.toString();
-        Pattern pattern = Pattern.compile("(0+)$");
+        Pattern pattern = Pattern.compile("0+$");
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             return matcher.group().length();
