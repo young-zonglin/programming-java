@@ -87,10 +87,12 @@ class Solution_1_wrong {
     public int[] twoSum(int[] nums, int target) {
         Arrays.sort(nums);
         int i, j=1;
-        for (i = 0; i < nums.length; i++) {
+        for (i = 0; i < nums.length-1; i++) {
             j = binarySearch(nums, i+1, target-nums[i]);
             if (j >= 0) break;
         }
+        if (j < 0)
+            throw new IllegalArgumentException("No two sum solution.");
         return new int[]{nums[i], nums[j]};
     }
 
