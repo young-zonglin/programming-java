@@ -24,7 +24,7 @@ public class Champagne {
         if (x > volume.length) return;
         int idx = x-1;
         if (howMuch[idx]+v > volume[idx]) {
-            int duo = v-volume[idx]-howMuch[idx];
+            int duo = v - (volume[idx]-howMuch[idx]);
             howMuch[idx] = volume[idx];
             putChampagne(x+1, duo);
         } else {
@@ -49,7 +49,7 @@ public class Champagne {
                 champagne.putChampagne(x, v);
             } else if (judge == 2) {
                 int k = sc.nextInt();
-                System.out.println(champagne.getLayerHowMuch(k));;
+                System.out.println(champagne.getLayerHowMuch(k));
             }
         }
     }
