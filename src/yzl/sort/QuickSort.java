@@ -46,6 +46,7 @@ public class QuickSort {
             swap(arr, i, j);
         }
         // 把基准值放到合适的位置，此时 小 < pivot < 大
+        // 一定是交换low和j，因为low是pivot，j是<=pivot的数
         swap(arr, low, j);
         return j;
     }
