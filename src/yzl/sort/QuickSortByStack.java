@@ -47,12 +47,15 @@ public class QuickSortByStack {
             while (left < right && arr[right] >= base) {
                 right--;
             }
+            // 此时left可用
             arr[left] = arr[right];
             while (left < right && arr[left] <= base) {
                 left++;
             }
+            // 此时right可用
             arr[right] = arr[left];
         }
+        // 此时left可用
         arr[left] = base;
         return left;
     }
