@@ -20,6 +20,9 @@ public class MergeSortFromDown {
             // 开始两两归并
             // mid < len-1 并且 mid=low + sz - 1 => low < len-sz
             for (int low = 0; low < len - sz; low += sz * 2) {
+                // 举个例子
+                // 0 1 2 3
+                // sz=2
                 merge(arr, low, low + sz - 1, Math.min(low + 2 * sz - 1, len - 1));
             }
         }
