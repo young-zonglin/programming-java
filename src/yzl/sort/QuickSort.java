@@ -41,7 +41,7 @@ public class QuickSort {
             // 从左扫描，找到>pivot的数
             while (i < high && arr[++i].compareTo(pivot) <= 0) ;
             // 从右扫描，找到<pivot的数
-            while (j > low && pivot.compareTo(arr[--j]) <= 0) ;
+            while (j > low && arr[--j].compareTo(pivot) >= 0) ;
             if (i >= j) break;
             swap(arr, i, j);
         }
