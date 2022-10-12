@@ -5,9 +5,9 @@ import yzl.utils.Tools;
 
 public class TopKQuickSelect {
     public static double[] topK(Double[] arr, int topK) {
-        QuickSelect.select(arr, topK-1);
+        QuickSelect.select(arr, topK - 1);
         double[] ret = new double[topK];
-        for (int i=0; i<topK; i++)
+        for (int i = 0; i < topK; i++)
             ret[i] = arr[i];
         return ret;
     }
@@ -17,7 +17,7 @@ public class TopKQuickSelect {
         Double[] newArr = Tools.toDoubleArr(arr);
         double[] topK = TopKQuickSelect.topK(newArr, 10);
         for (double tmp : topK) {
-            System.out.print(tmp+" ");
+            System.out.print(tmp + " ");
         }
     }
 }
