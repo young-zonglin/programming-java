@@ -3,12 +3,12 @@ package yzl.median;
 import yzl.utils.Tools;
 
 /**
- * Find k-th element.
+ * Find median element.
  * k = len/2
  */
 public class FindMedianQuickSort {
     public static double findMedian(Double[] arr) {
-        return QuickSelect.select(arr, arr.length/2);
+        return QuickSelect.select(arr, arr.length / 2);
     }
 
     public static void main(String[] args) {
