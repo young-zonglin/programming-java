@@ -5,16 +5,15 @@ package yzl.leetcode;
  */
 public class Solution_141 {
     public boolean hasCycle(ListNode head) {
-        ListNode slow = head, fast = head;
-        while (slow != null && fast != null) {
-            if (slow == slow.next) return true;
-            if (fast.next != null) {
-                fast = fast.next.next;
-            } else {
-                return false;
-            }
+        if (head == null) return false;
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast.next != null && fast.next.next != null && slow.next != null) {
+            fast = fast.next.next;
             slow = slow.next;
-            if (fast == slow && fast != null) return true;
+            if (fast == slow) {
+                return true;
+            }
         }
         return false;
     }
