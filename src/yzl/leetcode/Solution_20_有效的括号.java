@@ -22,12 +22,10 @@ public class Solution_20_有效的括号 {
         for (char c : s.toCharArray()) {
             if (left.contains(c)) {
                 stack.push(c);
+            } else if (!stack.empty() && Objects.equals(char2match.get(stack.peek()), char2match.get(c))) {
+                stack.pop();
             } else {
-                if (stack.empty()) return false;
-                Character tmp = stack.pop();
-                if (!Objects.equals(char2match.get(tmp), char2match.get(c))) {
-                    return false;
-                }
+                return false;
             }
         }
         return stack.empty();
