@@ -38,3 +38,30 @@ public class Solution_20_有效的括号 {
         System.out.println(new Solution_20_有效的括号().isValid("[]"));
     }
 }
+
+class Solution_20_good {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (Character character : s.toCharArray()) {
+            if (character == '{') {
+                stack.push('}');
+            } else if (character == '[') {
+                stack.push(']');
+            } else if (character == '(') {
+                stack.push(')');
+            } else if (!stack.empty() && stack.peek() == character) {
+                stack.pop();
+            } else {
+                return false;
+            }
+        }
+        return stack.empty();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Solution_20_good().isValid("]"));
+        System.out.println(new Solution_20_good().isValid("(]"));
+        System.out.println(new Solution_20_good().isValid("["));
+        System.out.println(new Solution_20_good().isValid("[]"));
+    }
+}
