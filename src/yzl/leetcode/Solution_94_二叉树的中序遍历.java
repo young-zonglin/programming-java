@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Solution_94 {
+public class Solution_94_二叉树的中序遍历 {
 
 }
 
 class Solution_94_one {
-     public List<Integer> inorderTraversal(TreeNode node) {
+     public List<Integer> inorderTraversal(TreeNode root) {
          List<Integer> list = new ArrayList<>();
-         if (node != null) {
-             list.addAll(inorderTraversal(node.left));
-             list.add(node.val);
-             list.addAll(inorderTraversal(node.right));
+         if (root != null) {
+             list.addAll(inorderTraversal(root.left));
+             list.add(root.val);
+             list.addAll(inorderTraversal(root.right));
          }
          return list;
      }
