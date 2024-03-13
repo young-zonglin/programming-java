@@ -17,19 +17,23 @@ public class Solution_234 {
         String reversed = sb.reverse().toString();
         return raw.equals(reversed);
     }
-
-    public static void main(String[] args) {
-        int arr[] = new int[]{1, 2, 3, 2};
-        ListNode head = ListNode.createLinkedList(arr);
-        ListNode.showLinkedList(head, "forward");
-        System.out.println(new Solution_234_two().isPalindrome(head));
-    }
 }
 
 class ListNode {
     int val;
     ListNode next;
-    ListNode(int x) { val = x; }
+
+    ListNode(int x) {
+        val = x;
+    }
+
+    ListNode() {
+    }
+
+    ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
 
     public static ListNode createLinkedList(int[] arr) {
         ListNode head = null, oldHead;
@@ -60,7 +64,7 @@ class Solution_234_one {
             values.add(cur.val);
             cur = cur.next;
         }
-        int i = 0, j = values.size()-1;
+        int i = 0, j = values.size() - 1;
         while (i < j) {
             if (!values.get(i).equals(values.get(j))) {
                 return false;
@@ -98,5 +102,12 @@ class Solution_234_two {
             cur = cur.next;
         }
         return tail;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 2};
+        ListNode head = ListNode.createLinkedList(arr);
+        ListNode.showLinkedList(head, "forward");
+        System.out.println(new Solution_234_two().isPalindrome(head));
     }
 }
