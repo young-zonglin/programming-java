@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Palindrome linked list.
  */
-public class Solution_234 {
+public class Solution_234_回文链表 {
     public boolean isPalindrome(ListNode head) {
         StringBuilder sb = new StringBuilder();
         while (head != null) {
