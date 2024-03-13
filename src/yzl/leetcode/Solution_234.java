@@ -7,6 +7,17 @@ import java.util.List;
  * Palindrome linked list.
  */
 public class Solution_234 {
+    public boolean isPalindrome(ListNode head) {
+        StringBuilder sb = new StringBuilder();
+        while (head != null) {
+            sb.append(head.val);
+            head = head.next;
+        }
+        String raw = sb.toString();
+        String reversed = sb.reverse().toString();
+        return raw.equals(reversed);
+    }
+
     public static void main(String[] args) {
         int arr[] = new int[]{1, 2, 3, 2};
         ListNode head = ListNode.createLinkedList(arr);
