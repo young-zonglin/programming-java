@@ -57,6 +57,7 @@ class ListNode {
 }
 
 class Solution_234_one {
+    // 也用了额外的存储空间，非O(1)的空间复杂度。。
     public boolean isPalindrome(ListNode head) {
         List<Integer> values = new ArrayList<>();
         ListNode cur = head;
@@ -77,6 +78,7 @@ class Solution_234_one {
 }
 
 class Solution_234_two {
+    // 也用了额外的存储空间，非O(1)的空间复杂度。。
     public boolean isPalindrome(ListNode head) {
         ListNode tail = reverse(head);
         return isSame(head, tail);
