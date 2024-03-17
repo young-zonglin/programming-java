@@ -5,7 +5,7 @@ package yzl.leetcode;
  */
 public class Solution_206 {
     public static void main(String[] args) {
-        int arr[] = new int[]{1, 2, 3, 2};
+        int[] arr = new int[]{1, 2, 3, 2};
         ListNode head = ListNode.createLinkedList(arr);
         ListNode.showLinkedList(head, "forward");
         ListNode reverse = new Solution_206_two().reverseList(head);
@@ -14,6 +14,7 @@ public class Solution_206 {
 }
 
 class Solution_206_one {
+    // 使用头插法解决反转链表
     public ListNode reverseList(ListNode head) {
         ListNode tail = null, oldLast, cur = head;
         while (cur != null) {
@@ -27,6 +28,7 @@ class Solution_206_one {
 }
 
 class Solution_206_two {
+    // 不new一个节点的方法
     public ListNode reverseList(ListNode head) {
         ListNode tail = null, cur = head;
         while (cur != null) {
