@@ -4,10 +4,6 @@ package yzl.leetcode;
  * Determine if a number is a palindrome.
  */
 public class Solution_9 {
-    public static void main(String[] args) {
-        int x = 121;
-        System.out.println(new Solution_9_three().isPalindrome(x));
-    }
 }
 
 class Solution_9_one {
@@ -19,7 +15,7 @@ class Solution_9_one {
 
     private String reverse(String n) {
         char[] chars = n.toCharArray();
-        int i = 0, j = chars.length-1;
+        int i = 0, j = chars.length - 1;
         while (i < j) {
             swap(chars, i++, j--);
         }
@@ -44,20 +40,16 @@ class Solution_9_two {
 class Solution_9_three {
     public boolean isPalindrome(int x) {
         if (x < 0) return false;
-        int count = 0;
-        int place[] = new int[20];
-        int tmp;
+        int reversed = 0;
+        int test = x;
         while (x != 0) {
-            tmp = x % 10;
+            reversed = reversed * 10 + x % 10;
             x /= 10;
-            place[count++] = tmp;
         }
-        int i = 0, j = count-1;
-        while (i < j) {
-            if (place[i] != place[j]) return false;
-            i++;
-            j--;
-        }
-        return true;
+        return test == reversed;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Solution_9_three().isPalindrome(121));
     }
 }
