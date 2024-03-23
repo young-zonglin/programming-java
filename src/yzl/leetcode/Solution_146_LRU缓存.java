@@ -1,38 +1,51 @@
 package yzl.leetcode;
 
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+// TODO 3 使用双向队列deque
 public class Solution_146_LRU缓存 {
-    static class Node {
-        int val;
-        Node before;
-        Node next;
-    }
+    private final int capacity;
 
-    private int size;
-
-    private int capacity;
-
-    private Map<Integer, Node> indexMap = new HashMap<>();
+    private final Map<Integer, Integer> cache = new LinkedHashMap<>();
 
     public Solution_146_LRU缓存(int capacity) {
         this.capacity = capacity;
     }
 
     public int get(int key) {
-        // 更新
-        // 返回
-        if (indexMap.containsKey(key)) {
-            return indexMap.get(key).val;
+        if (cache.containsKey(key)) {
+            int value = cache.remove(key);
+            cache.put(key, value);
+            return value;
         } else {
             return -1;
         }
     }
 
     public void put(int key, int value) {
-        // 更新值 or 新增
-        // 如果超出
-        // 更新
+        if (cache.containsKey(key)) {
+            cache.remove(key);
+        } else {
+            if (cache.size() >= this.capacity) {
+                Iterator<Map.Entry<Integer, Integer>> iterator = cache.entrySet().iterator();
+                iterator.next();
+                iterator.remove();
+            }
+        }
+        cache.put(key, value);
+    }
+
+    public static void main(String[] args) {
+        Solution_146_LRU缓存 lruCache = new Solution_146_LRU缓存(2);
+        lruCache.put(2, 1);
+        lruCache.put(3, 2);
+        System.out.println(lruCache.get(3));
+        System.out.println(lruCache.get(2));
+        lruCache.put(4, 3);
+        System.out.println(lruCache.get(2));
+        System.out.println(lruCache.get(3));
+        System.out.println(lruCache.get(4));
     }
 }
