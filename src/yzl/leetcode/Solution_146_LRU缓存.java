@@ -31,9 +31,11 @@ public class Solution_146_LRU缓存 {
             if (cache.size() >= this.capacity) {
                 Iterator<Map.Entry<Integer, Integer>> iterator = cache.entrySet().iterator();
                 iterator.next();
+                // 头部是最久的元素
                 iterator.remove();
             }
         }
+        // 放到尾部
         cache.put(key, value);
     }
 
