@@ -9,15 +9,15 @@ public class Solution_94_二叉树的中序遍历 {
 }
 
 class Solution_94_one {
-     public List<Integer> inorderTraversal(TreeNode root) {
-         List<Integer> list = new ArrayList<>();
-         if (root != null) {
-             list.addAll(inorderTraversal(root.left));
-             list.add(root.val);
-             list.addAll(inorderTraversal(root.right));
-         }
-         return list;
-     }
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root != null) {
+            list.addAll(inorderTraversal(root.left));
+            list.add(root.val);
+            list.addAll(inorderTraversal(root.right));
+        }
+        return list;
+    }
 }
 
 class Solution_94_two {
@@ -35,5 +35,17 @@ class Solution_94_two {
         }
 
         return list;
+    }
+}
+
+class Solution_94_three {
+    List<Integer> result = new ArrayList<>();
+
+    public void inorderTraversal(TreeNode root) {
+        if (root != null) {
+            inorderTraversal(root.left);
+            result.add(root.val);
+            inorderTraversal(root.right);
+        }
     }
 }
