@@ -12,7 +12,9 @@ public class Solution_124_二叉树中的最大路径和_hard {
         return maxResult;
     }
 
-    // 获取root为起点的（一条序列）最大路径和
+    // LeetCode 124：获取root为起点的（一条序列）最大路径和
+    // LeetCode 543：获取root为起点的（一条序列）最大深度，看的是边
+    // LeetCode 104：获取root为起点的（一条序列）最大深度，看的是顶点
     private int getMaxSum(TreeNode root) {
         if (root == null) return 0;
         // 如果左孩子的最大路径和MaxSum是负数，就不要汇总进来了
