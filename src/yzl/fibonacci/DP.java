@@ -5,16 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DP {
-    public BigInteger fastFib(int n, Map<Integer, BigInteger> memory) {
-        if (n==0 || n==1) return BigInteger.ONE;
-        BigInteger v = memory.get(n);
-        if (v == null) {
-            BigInteger middle = fastFib(n-1, memory).add(fastFib(n-2, memory));
-            memory.put(n, middle);
-            return middle;
-        } else {
-            return v;
+    public BigInteger fastFib(int n, Map<Integer, BigInteger> dp) {
+        if (n == 0 || n == 1) return BigInteger.ONE;
+        if (!dp.containsKey(n)) {
+            dp.put(n, fastFib(n - 1, dp).add(fastFib(n - 2, dp)));
         }
+        return dp.get(n);
     }
 
     public static void main(String[] args) {
@@ -24,6 +20,6 @@ public class DP {
         BigInteger res = new DP().fastFib(n, memory);
         System.out.println(res);
         Long end = System.currentTimeMillis();
-        System.out.println("Time consuming: "+(end-start)/1000.0);
+        System.out.println("Time consuming: " + (end - start) / 1000.0);
     }
 }
