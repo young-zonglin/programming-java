@@ -3,7 +3,7 @@ package yzl.leetcode;
 /**
  * Reverse linked list.
  */
-public class Solution_206 {
+public class Solution_206_反转链表 {
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 3, 2};
         ListNode head = ListNode.createLinkedList(arr);
