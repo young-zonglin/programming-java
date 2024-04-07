@@ -13,31 +13,31 @@ public class Solution_206_反转链表 {
     }
 }
 
+// 使用头插法解决反转链表
 class Solution_206_one {
-    // 使用头插法解决反转链表
     public ListNode reverseList(ListNode head) {
-        ListNode tail = null, oldLast, cur = head;
-        while (cur != null) {
-            oldLast = tail;
-            tail = new ListNode(cur.val);
-            tail.next = oldLast;
-            cur = cur.next;
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode oldHead = newHead;
+            newHead = new ListNode(head.val);
+            newHead.next = oldHead;
+            head = head.next;
         }
-        return tail;
+        return newHead;
     }
 }
 
+// 不new一个节点的方法
 class Solution_206_two {
-    // 不new一个节点的方法
     public ListNode reverseList(ListNode head) {
-        ListNode tail = null, cur = head;
+        ListNode newHead = null, oldHead, cur = head;
         while (cur != null) {
             ListNode next = cur.next;
-            ListNode oldLast = tail;
-            tail = cur;
-            tail.next = oldLast;
+            oldHead = newHead;
+            newHead = cur;
+            newHead.next = oldHead;
             cur = next;
         }
-        return tail;
+        return newHead;
     }
 }
