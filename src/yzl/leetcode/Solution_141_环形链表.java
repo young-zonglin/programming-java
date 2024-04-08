@@ -3,7 +3,7 @@ package yzl.leetcode;
 /**
  * Given a linked list, determine if it has a cycle in it.
  */
-public class Solution_141 {
+public class Solution_141_环形链表 {
     public boolean hasCycle(ListNode head) {
         if (head == null) return false;
         ListNode fast = head;
