@@ -11,6 +11,7 @@ public class Solution_141_环形链表 {
         while (fast.next != null && fast.next.next != null && slow.next != null) {
             fast = fast.next.next;
             slow = slow.next;
+            // 为了避免null == null，在while做了!=null的判断
             if (fast == slow) {
                 return true;
             }
