@@ -48,15 +48,18 @@ public class QuickSortByStack {
                 right--;
             }
             // 此时left可用
+            // 其实就是一次交换
             arr[left] = arr[right];
             while (left < right && arr[left] <= base) {
                 left++;
             }
             // 此时right可用
+            // 其实就是一次交换
             arr[right] = arr[left];
         }
         // 此时left可用
         arr[left] = base;
+        // 因为是base，所以return left
         return left;
     }
 }
