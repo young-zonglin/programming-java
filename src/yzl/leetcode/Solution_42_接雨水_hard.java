@@ -5,7 +5,11 @@ package yzl.leetcode;
  * 灵神题解
  */
 public class Solution_42_接雨水_hard {
-    public int trap1(int[] height) {
+    /*
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(n)
+     */
+    public int trap前后缀分解(int[] height) {
         int n = height.length;
         int[] pre = new int[n];
         int[] suf = new int[n];
@@ -24,6 +28,29 @@ public class Solution_42_接雨水_hard {
             // 左边如果还有更高的，水会漫过来的，所以左边直接取最高即可。右边也是
             int area = Math.min(pre[i], suf[i]) - height[i];
             ans += area;
+        }
+        return ans;
+    }
+
+    /*
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     */
+    public int trap双指针(int[] height) {
+        int ans = 0;
+        int pre_max = 0;
+        int suf_max = 0;
+        int left = 0, right = height.length - 1;
+        while (left < right) {
+            pre_max = Math.max(pre_max, height[left]);
+            suf_max = Math.max(suf_max, height[right]);
+            if (pre_max < suf_max) {
+                ans += pre_max - height[left];
+                left++;
+            } else {
+                ans += suf_max - height[right];
+                right--;
+            }
         }
         return ans;
     }
