@@ -11,6 +11,7 @@ public class Solution_42_接雨水_hard {
      */
     public int trap前后缀分解(int[] height) {
         int n = height.length;
+        // pre是某个单元格的左侧，suf是某个单元格的右侧
         int[] pre = new int[n];
         int[] suf = new int[n];
         pre[0] = height[0];
@@ -38,8 +39,9 @@ public class Solution_42_接雨水_hard {
      */
     public int trap双指针(int[] height) {
         int ans = 0;
-        int pre_max = 0;
-        int suf_max = 0;
+        int pre_max = 0; // 某个单元格的左侧
+        int suf_max = 0; // 某个单元格的右侧
+        // left指向左侧的单元格，right指向右侧的单元格
         int left = 0, right = height.length - 1;
         while (left < right) {
             pre_max = Math.max(pre_max, height[left]);
