@@ -44,12 +44,17 @@ public class Solution_42_接雨水_hard {
         // left指向左侧的单元格，right指向右侧的单元格
         int left = 0, right = height.length - 1;
         while (left < right) {
+            // 随着两边向中间走，持续刷新前缀最大和后缀最大
             pre_max = Math.max(pre_max, height[left]);
             suf_max = Math.max(suf_max, height[right]);
+            // 如果pre_max<suf_max，则意味着此时指向的左边单元木桶是可以计算的
+            // 算完后，再向右拓展（left++） 前缀最大 的计算
             if (pre_max < suf_max) {
                 ans += pre_max - height[left];
                 left++;
             } else {
+                // 反之，则是右边的单元木桶可以计算了
+                // 并向左拓展（right--） 后缀最大
                 ans += suf_max - height[right];
                 right--;
             }
