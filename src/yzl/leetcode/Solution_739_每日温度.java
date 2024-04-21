@@ -1,9 +1,12 @@
 package yzl.leetcode;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.Stack;
 
 public class Solution_739_每日温度 {
+    // 暴力法
     public int[] dailyTemperatures(int[] temperatures) {
         int[] answer = new int[temperatures.length];
         for (int i = 0; i < temperatures.length; i++) {
@@ -18,6 +21,7 @@ public class Solution_739_每日温度 {
     }
 
     // 单调栈：左边第一个或者右边第一个比当前大的元素，都可以构建从栈顶到栈底的单调递增栈。
+    // 使用stack
     public int[] dailyTemperatures1(int[] temperatures) {
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
@@ -30,6 +34,25 @@ public class Solution_739_每日温度 {
             stack.push(i);
         }
         return res;
+    }
+
+    // 单调栈，使用deque，性能比Stack好很多。
+    public int[] dailyTemperatures2(int[] temperatures) {
+        int n = temperatures.length;
+        int[] ans = new int[n];
+        Deque<Integer> deque = new ArrayDeque<>();
+        deque.add(0);
+        int i = 1;
+        while (i < n) {
+            if (!deque.isEmpty() && temperatures[i] > temperatures[deque.peekLast()]) {
+                int cur = deque.removeLast();
+                ans[cur] = i - cur;
+            } else {
+                deque.add(i);
+                i++;
+            }
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
