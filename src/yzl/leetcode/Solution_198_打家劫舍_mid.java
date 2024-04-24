@@ -28,7 +28,7 @@ public class Solution_198_打家劫舍_mid {
 
 /*
  * 盗贼有多种选择可以走到这个位置，所以说存在重叠子问题
- * 使用备忘录/缓存，自顶向下的DP解法
+ * 即递归其实有重复计算 => 使用备忘录/缓存，自顶向下的DP解法
  */
 class Solution_198_memory {
     private int[] memory;
@@ -50,3 +50,18 @@ class Solution_198_memory {
         return res;
     }
 }
+
+// 自底向上的解法，即填充一维dp数组
+class Solution_198_dp {
+    public int rob(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n + 2]; // 避免数组越界
+        // dp[n..]=0为base case
+        for (int i = n - 1; i >= 0; i--) {
+            dp[i] = Math.max(dp[i + 1], nums[i] + dp[i + 2]);
+        }
+        return dp[0];
+    }
+}
+
+// TODO 还有O(1)的解法，因为dp[i]的计算只与最近的两个状态有关系
