@@ -4,15 +4,19 @@ import java.util.Arrays;
 
 /*
  * 挺好的讲解：https://waiterxiaoyy.github.io/2020/03/24/LeetCode%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E9%9B%B6%E9%92%B1%E5%87%91%E6%95%B0%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%89/
+ * 本质类似完全背包问题，选一些东西&&要达成xx最优 =>可以使用动态规划求解
+ * 大的问题是使用最少枚硬币。（类似爬楼梯）子问题就是减少一枚，凑出（amount-coin）要使用最少xx枚硬币
+ * 大的问题和子问题的关系，可以写出状态转移方程（选择是什么）=> min(dp[i-coin]+1)
+ * 状态是什么，dp[i]表示凑出i金额最少需要多少枚硬币
  */
 public class Solution_322_零钱兑换_mid {
     public int coinChange(int[] coins, int amount) {
         // 因为硬币最小面额是1，所以凑出amount其实至多需要amount枚硬币
         int max = amount + 1;
+        // 状态
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, max);
         dp[0] = 0;
-        // 状态：dp[i]表示凑出i金额最少需要多少枚硬币
         for (int i = 1; i <= amount; i++) {
             // 对每个子问题都穷举
             // 类似爬楼梯，少一层就是走到n-1和n-2
