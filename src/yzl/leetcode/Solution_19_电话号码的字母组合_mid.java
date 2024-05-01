@@ -24,6 +24,10 @@ public class Solution_19_电话号码的字母组合_mid {
      * 1、枚举
      * 2、子问题：dfs(i)
      * 3、下一个子问题：dfs(i+1)
+     *
+     * 时间复杂度：O(n*4^n)，
+     * 有些数字可以映射4个字母。
+     * 最后添加答案的时候，要把数组变成字符串，这里有n的时间复杂度
      */
     private void dfs(int i, int n, String digits, List<String> ans) {
         if (i == n) {
