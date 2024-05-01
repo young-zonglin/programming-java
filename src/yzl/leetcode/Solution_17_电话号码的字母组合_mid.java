@@ -6,7 +6,7 @@ import java.util.List;
 /*
  * B站灵神讲回溯
  */
-public class Solution_19_电话号码的字母组合_mid {
+public class Solution_17_电话号码的字母组合_mid {
     private String[] path;
     private final String[] mapping = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
@@ -39,5 +39,12 @@ public class Solution_19_电话号码的字母组合_mid {
             path[i] = curEnum.substring(j, j + 1);
             dfs(i + 1, n, digits, ans);
         }
+    }
+
+    public static void main(String[] args) {
+        String digits = "253";
+        List<String> ans = new Solution_17_电话号码的字母组合_mid().letterCombinations(digits);
+        System.out.println(ans);
+        System.out.println(ans.size());
     }
 }
