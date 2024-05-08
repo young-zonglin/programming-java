@@ -10,7 +10,7 @@ public class Solution_236_二叉树的最近公共祖先 {
      * （2）如果左子树和右子树都找到了，只能返回当前节点了
      * （3）如果只有左子树找到了，就返回左边的结果
      * （4）如果只有右子树找到了，就返回右边的结果
-     * （5）如果左右都没有找到，就返回了空节点
+     * （5）如果左右都没有找到，就返回空节点
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) {
