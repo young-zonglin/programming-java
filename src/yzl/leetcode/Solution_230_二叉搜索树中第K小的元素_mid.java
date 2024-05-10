@@ -4,8 +4,29 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/*
+ * 性能最好了：用中序遍历，当遍历到第k个节点时，就找到答案了
+ */
 public class Solution_230_二叉搜索树中第K小的元素_mid {
+    private int count = 0;
+    private int ans = -1;
 
+    public int kthSmallest(TreeNode root, int k) {
+        count = 0;
+        ans = -1;
+        inOrder(root, k);
+        return ans;
+    }
+
+    private void inOrder(TreeNode root, int k) {
+        if (root == null || count >= k) return;
+        inOrder(root.left, k);
+        count++;
+        if (count == k) {
+            ans = root.val;
+        }
+        inOrder(root.right, k);
+    }
 }
 
 /*
