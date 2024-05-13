@@ -24,6 +24,11 @@ public class Solution_994_腐烂的橘子_mid {
                 Tuple tuple = deque.removeFirst();
                 int x = tuple.x;
                 int y = tuple.y;
+                /*
+                 * || 和 | 的差异：
+                 * true || false => true：第一个为true，后面的就不再运行了
+                 * true | false  => true：全部都要运行
+                 */
                 infected |= infect(grid, x - 1, y, deque);
                 infected |= infect(grid, x + 1, y, deque);
                 infected |= infect(grid, x, y - 1, deque);
