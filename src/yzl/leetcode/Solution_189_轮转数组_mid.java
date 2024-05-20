@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Deque;
 
 public class Solution_189_轮转数组_mid {
+    // 使用额外空间，性能也比较慢
+    // TODO 使用O(1)原地算法
     public void rotate(int[] nums, int k) {
         int n = nums.length;
         k = k % n;
