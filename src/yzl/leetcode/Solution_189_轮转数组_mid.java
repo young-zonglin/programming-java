@@ -29,3 +29,22 @@ public class Solution_189_轮转数组_mid {
         System.out.println(Arrays.toString(nums));
     }
 }
+
+class Solution_189_cool {
+    // 先复制为2倍，再取k-n开始
+    // 1 2 3 4 5 6 7  1 2 3 4 5 6 7
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n;
+        int[] twiceNums = new int[n << 1];
+        System.arraycopy(nums, 0, twiceNums, 0, n);
+        System.arraycopy(nums, 0, twiceNums, n, n);
+        System.arraycopy(twiceNums, n - k, nums, 0, n);
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        new Solution_189_cool().rotate(nums, 10);
+        System.out.println(Arrays.toString(nums));
+    }
+}
