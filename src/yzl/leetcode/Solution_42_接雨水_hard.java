@@ -41,13 +41,13 @@ public class Solution_42_接雨水_hard {
         int ans = 0;
         int pre_max = 0; // 某个单元格的左侧
         int suf_max = 0; // 某个单元格的右侧
-        // left指向左侧的单元格，right指向右侧的单元格
         int left = 0, right = height.length - 1;
         while (left < right) {
             // 随着两边向中间走，持续刷新前缀最大和后缀最大
             pre_max = Math.max(pre_max, height[left]);
             suf_max = Math.max(suf_max, height[right]);
             // 如果pre_max<suf_max，则意味着此时指向的左边单元木桶是可以计算的
+            // 因为suf_max只会更大
             // 算完后，再向右拓展（left++） 前缀最大 的计算
             if (pre_max < suf_max) {
                 ans += pre_max - height[left];
