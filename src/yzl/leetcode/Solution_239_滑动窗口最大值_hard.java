@@ -24,14 +24,17 @@ public class Solution_239_滑动窗口最大值_hard {
             if (!deque.isEmpty() && i - deque.getFirst() >= k) {
                 deque.removeFirst();
             }
+
             // 比新生弱的都当场退役（求区间最小值把这里改成>即可）
             // 易错点1：deque里只是索引，所以要比较的其实是nums[index]
             while (!deque.isEmpty() && nums[deque.getLast()] < nums[i]) {
                 deque.removeLast();
             }
+
             // 新生入队
             deque.add(i);
 
+            // 记录
             if (i >= k - 1) {
                 // 易错点2：ans存储的是区间最值，而不是索引。。
                 ans[j++] = nums[deque.getFirst()];
